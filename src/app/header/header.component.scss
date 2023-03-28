@@ -1,0 +1,117 @@
+.sun{
+.header-bg{
+    background-color: rgb(78, 78, 76);
+    padding: 4px;
+    .content-container{
+        margin-right: 30px;
+        margin-left: 30px;
+        .medium-feat{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .icons{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .inner-icons{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100px;
+            }
+        }
+        .items{
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+            margin-bottom: 0px;
+            .list-item{
+                font-size: 14px;
+                color: #ffffff;
+                font-family: Arial, Helvetica, sans-serif;
+                margin-right: 10px;
+                font-weight: 600;
+                cursor: pointer;
+            }
+        }
+        .logoutBtn{
+            background-color: #4f46e5;
+            width: 100px;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 5px;
+            border-width: 0px;
+            outline: none;
+            font-size: 14px;
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    }
+}
+.header{
+    padding-right: 0px;
+    padding-left: 0px;
+}
+.list-item{
+    font-size: 14px;
+    color: #ffffff;
+    margin-bottom: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-right: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.icon-item{
+    padding-right: 5px;
+}
+.header-img{
+    width: 100px;
+    cursor: pointer;
+}
+
+@media screen and (max-width:425px) {
+    .content-container{
+        margin-right: 10px !important;
+        margin-left: 10px !important;
+    }
+    .medium-feat{
+        display: none !important;
+    }
+    .icons{
+        display: block;
+        color:  #f1f5f9;
+    }
+    
+    .logoutBtn{
+        display: none !important;
+    }
+    .logout{
+        display: block;
+        background-color: transparent;
+        color:  #f1f5f9;
+        border-width: 0px;
+        height: 25px;
+    }
+    .header-img{
+        width: 80px !important;
+    }
+    .header-bg{
+        padding: 8px;
+    }
+}
+@media screen and (min-width:426px){
+    .items{
+        display: block;
+    }
+    .icons{
+        display: none !important;
+    }
+    .logoutBtn{
+        display: block !important;
+    }
+    .logout{
+        display: none;
+    }
+}
+}

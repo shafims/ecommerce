@@ -1,0 +1,318 @@
+.each_card{
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgb(54, 54, 54);
+    cursor: pointer;
+    .hrLine{
+        color: #64748A;
+        border-width: 3px;
+    }
+    
+    .skills{
+        // background-color: yellowgreen;
+        .skill-title{
+            font-size: 20px;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .skills_container{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            .Skill_card{
+                display: flex;
+                align-items: center;
+                .skill_img{
+                    width: 80px;
+                    margin-right: 10px;
+                }
+                .language_name{
+                    font-size: 20px;
+                    margin-bottom: 0px;
+                    color: #fff;
+                    font-family: Arial, Helvetica, sans-serif;
+                }
+            }
+        }
+        
+    }
+    .lif_at_company{
+        display: flex;
+        .context{
+            color: #fff;
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 25px;
+            padding-right: 8px;
+        }
+    }
+   
+}
+.card_header{
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    .c_image{
+        width: 50px;
+    }
+    .role_rating{
+        margin-left: 8px;
+        .title{
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 0px;
+            margin-top: -5px;
+        }
+        .rating{
+            display: flex;
+            align-items:flex-end;
+            .rating_value{
+                font-size: 20px;
+                font-family: Arial, Helvetica, sans-serif;
+                color: #fff;
+                font-weight: 600;
+                margin-bottom: 0px;
+            }
+            .star_icon{
+                color: #fff700;
+                margin-right: 4px;
+            }
+        }
+    }
+}
+.card_intermediate{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .emp_type_location{
+        display: flex;
+        align-items: center;
+        .location_con{
+            display: flex;
+            align-items: center;
+            color: #fff;
+            margin-right: 12px;
+            .icon_adj{
+                height: 28px;
+            }
+            .text{
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 15px;
+                color: #fff;
+                margin-bottom: 0px;
+                margin-left: 2px;
+            }
+        }
+    }
+    .package{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        color: #fff;
+        font-weight: 500;
+        margin-bottom: 0;
+    }
+}
+.description{
+    .navigate_cont{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .anchor{
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+            text-decoration: none;
+            color: #042cf2;
+            .icon_adj2{
+                margin-left: 3px;
+            }
+        }
+    }
+    .des_title{
+        font-size: 28px;
+        color: #fff;
+        font-family: Arial, Helvetica, sans-serif;
+        margin-bottom: 0px;
+    }
+    .des_content{
+        font-size: 18px;
+        color: #fff;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 24px;
+        margin-top: 10px;
+    }
+}
+.similar_jobs_container{
+    display: flex;
+    flex-wrap: wrap;
+    .similar_card{
+        background-color: #272625;
+        border-radius: 8px;
+        width: 300px;
+        padding: 15px;
+        cursor: pointer;
+    }
+}
+.similar_job{
+    padding-right: 0px;
+    padding-left: 0px;
+}
+.similarJob{
+    font-size: 28px;
+}
+.des_content2{
+    font-size: 16px;
+}
+
+// .sun{
+    .header-bg{
+        background-color: rgb(78, 78, 76);
+        padding: 4px;
+        .content-container{
+            margin-right: 30px;
+            margin-left: 30px;
+            .medium-feat{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .icons{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .inner-icons{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 100px;
+                }
+            }
+            .items{
+                list-style-type: none;
+                display: flex;
+                align-items: center;
+                margin-bottom: 0px;
+                .list-item{
+                    font-size: 14px;
+                    color: #ffffff;
+                    font-family: Arial, Helvetica, sans-serif;
+                    margin-right: 10px;
+                    font-weight: 600;
+                    cursor: pointer;
+                }
+            }
+            .logoutBtn{
+                background-color: #4f46e5;
+                width: 100px;
+                cursor: pointer;
+                padding: 10px;
+                border-radius: 5px;
+                border-width: 0px;
+                outline: none;
+                font-size: 14px;
+                color: #ffffff;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+        }
+    }
+    .header{
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+    .list-item{
+        font-size: 14px;
+        color: #ffffff;
+        margin-bottom: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        margin-right: 10px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+    .icon-item{
+        padding-right: 5px;
+    }
+    .header-img{
+        width: 100px;
+        cursor: pointer;
+    }
+    
+    // @media screen and (max-width:425px) {
+    //        }
+    
+    // }
+
+
+@media screen and (max-width:425px) {
+    .package{
+        font-size: 18px !important;
+    }
+    .skill_img{
+        width: 50px !important;
+    }
+    .language_name{
+        font-size: 16px !important;
+    }
+    .des_content{
+        font-size: 16px !important;
+    }
+    .lif_at_company{
+        flex-direction: column !important;
+    }
+    .context{
+        font-size: 16px !important;
+        margin-bottom: 10px !important;
+        padding-right: 0px !important;
+    }
+    .similar_jobs_container{
+        flex-direction: column !important;
+        .similar_card{
+           width: 100% !important;
+        }
+    }
+    .content-container{
+        margin-right: 10px !important;
+        margin-left: 10px !important;
+    }
+    .medium-feat{
+        display: none !important;
+    }
+    .icons{
+        display: block;
+        color:  #f1f5f9;
+    }
+    
+    .logoutBtn{
+        display: none !important;
+    }
+    .logout{
+        display: block;
+        background-color: transparent;
+        color:  #f1f5f9;
+        border-width: 0px;
+        height: 25px;
+    }
+    .header-img{
+        width: 80px !important;
+    }
+    .header-bg{
+        padding: 8px;
+    }
+
+}
+
+@media screen and (min-width:426px){
+    .items{
+        display: block;
+    }
+    .icons{
+        display: none !important;
+    }
+    .logoutBtn{
+        display: block !important;
+    }
+    .logout{
+        display: none;
+    }
+}

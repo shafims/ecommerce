@@ -1,0 +1,16 @@
+<div class="auth-bg">
+    <form class="authContainer" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <img src="https://assets.ccbp.in/frontend/react-js/logo-img.png" alt="webSiteLogo" class="website"/>
+        <div class="pair-input">
+            <label for="userName" class="lable-style">USERNAME</label>
+            <input id="userName" type="text" class="input-style" placeholder="Username" name="username" formControlName="username"/>
+        </div>
+        <div class="pair-input">
+            <label for="password" class="lable-style">PASSWORD</label>
+            <input id="password" type="password" class="input-style" name="password" placeholder="Password" formControlName="password"/>
+        </div>
+        <button type="submit" mat-raised-button color="primary">Login</button>
+        <p class="errorMsg mb-0 mt-2" *ngIf="status_code === 400">**{{error_msg}}</p>
+    </form>
+    
+</div>

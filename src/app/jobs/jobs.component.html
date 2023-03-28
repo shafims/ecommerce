@@ -1,0 +1,151 @@
+
+<!-- Header starts heare -->
+<div class="header-bg p-3">
+    <div class="container header">
+        <div class="medium-feat d-flex justify-content-between align-items-center"> 
+            <img src="https://assets.ccbp.in/frontend/react-js/logo-img.png" alt="webSiteLogo" class="header-img" routerLink=""/>
+            <ul class="items d-flex justify-content-between align-items-center mb-0">
+                <li class="list-item" routerLink="">Home</li>
+                <li class="list-item" routerLink="/jobs">Jobs</li>
+            </ul>
+            <button class="logoutBtn" (click)="logout()" mat-raised-button color="primary">Logout</button>
+        </div>
+        
+        <div class="icons  d-flex justify-content-between align-items-center">
+            <img src="https://assets.ccbp.in/frontend/react-js/logo-img.png" alt="webSiteLogo" class="header-img" routerLink=""/>
+            <div class="inner-icons  d-flex justify-content-between align-items-center">
+                <mat-icon class="icon-item">home</mat-icon>
+                <mat-icon class="icon-item">work</mat-icon>
+                <button class="logout" (click)="logout()">
+                    <mat-icon>logout</mat-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- header Ends heare -->
+
+<!-- jobs data container starts heare -->
+<div class="container home_container mt-5">
+    <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "large" color = "#ffffff" type = "ball-atom" [fullScreen] = "true">
+        <p style="color: white" > Loading... </p>
+    </ngx-spinner>
+    <div class="profile_container">
+        <div class="user_container" style="height: 250px; width: 100%;margin-bottom: 10px; padding: 15px;">
+            <div>
+                <img src="{{storingUserInfo['profile_image_url']}}" alt="userProfile" style="width: 80px;">
+                <h1 style="color: #5f67d4;font-size: 25px;margin-top: 3px;">{{storingUserInfo['name']}}</h1>
+                <p style="font-size: 18px;">{{storingUserInfo['short_bio']}}</p>
+            </div>
+        </div>
+        <hr style="color: #64748A;border-width: 3px;">
+        <form [formGroup]="filteredForm" (ngSubmit)="onSubmit()">
+            <h1 class="text-white">Type of Employment</h1>
+            <div class="mb-2 pl-2">
+                <div class="d-flex align-items-start mb-1">
+                    <input type="checkbox" id="fullTime" name="FullTime" formControlName="FullTime">
+                    <label for="fullTime" class="lableAdj">Full Time</label>
+                </div>
+                <div class="d-flex align-items-center mb-1">
+                    <input type="checkbox" id="parttime" name="PartTime" formControlName="PartTime">
+                    <label for="parttime" class="lableAdj">Part Time</label>
+                </div>
+                <div class="d-flex align-items-center mb-1">
+                    <input type="checkbox" id="freelance" name="Freelance" formControlName="Freelance">
+                    <label for="freelance" class="lableAdj">Freelance</label>
+                </div>
+                <div class="d-flex align-items-center mb-1">
+                    <input type="checkbox" id="internship" name="Internship" formControlName="Internship">
+                    <label for="internship" class="lableAdj">Internship</label>
+                </div>
+            </div>
+            <hr style="color: #64748A;border-width: 3px;">
+            <h1 class="text-white">Salary Range</h1>
+            <div class="mb-2 pl-2">
+                <div class="d-flex align-items-start mb-1">
+                    <input type="radio" id="10lpa" value="10LPA" name="PackageLPA" formControlName="PackageLPA">
+                    <label for="10lpa" class="lableAdj">10LPA and above</label>
+                </div>
+                <div class="d-flex align-items-center mb-1">
+                    <input type="radio" id="20lpa" value="20LPA" name="PackageLPA" formControlName="PackageLPA">
+                    <label for="20lpa" class="lableAdj">20LPA and above</label>
+                </div>
+                <div class="d-flex align-items-center mb-1">
+                    <input type="radio" id="30lpa" value="30LPA" name="PackageLPA" formControlName="PackageLPA">
+                    <label for="30lpa" class="lableAdj">30LPA and above</label>
+                </div>
+                <div class="d-flex align-items-center mb-1">
+                    <input type="radio" id="40lpa" value="40LPA" name="PackageLPA" formControlName="PackageLPA">
+                    <label for="40lpa" class="lableAdj">40LPA and above</label>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between mt-3">
+                <button mat-raised-button color="warn" type="reset" matTooltip="All filters will be empty">Clear</button>
+                <button mat-raised-button color="primary" type="submit" matTooltip="Above filters will be applied">Apply</button>
+            </div>
+        </form>
+    </div>
+    <ul class="job_container">
+        <div class="search_container">
+            <input type="search" class="input_adj" placeholder="Search Role" name="userText" [(ngModel)]="userText"/>
+            <button class="search_btn" (click)="searchValue(userText.toUpperCase())" matTooltip="you will get jobs based on search value">
+                <mat-icon>search</mat-icon>
+            </button>
+        </div>
+        <div *ngIf="statusCode === 200; then thenBlock else elseBlock">
+        </div>
+        <!-- successfully data fetched container view -->
+        <ng-template #thenBlock>
+            <div *ngIf="jobsArray.length > 0;then trueBlock else emptyBlock"></div>
+            <!-- list of jobs container -->
+            <ng-template #trueBlock>
+                <li *ngFor ="let jobCard of jobsArray;let i=index;" [routerLink]="['/jobs',jobCard['id']]">
+                    <div class="each_card">
+                        <div class="card_header">
+                            <img src="{{jobCard['company_logo_url']}}" alt="company_logo" class="c_image"/>
+                            <div class="role_rating">
+                                <h1 class="title">{{jobCard['title']}}</h1>
+                                <div class="rating">
+                                    <mat-icon class="star_icon">star</mat-icon>
+                                   <p class="rating_value">{{jobCard['rating']}}</p> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card_intermediate">
+                            <div class="emp_type_location">
+                                <div class="location_con">
+                                    <mat-icon class="icon_adj">location_on</mat-icon>
+                                    <p class="text">{{jobCard['location']}}</p>
+                                </div>
+                                <div class="location_con">
+                                    <mat-icon class="icon_adj">work</mat-icon>
+                                    <p class="text">{{jobCard['employment_type']}}</p>
+                                </div>
+                            </div>
+                            <p class="package">{{jobCard['package_per_annum']}}</p>
+                        </div>
+                        <hr class="hrLine"/>
+                        <div class="description">
+                            <h1 class="des_title">Description</h1>
+                            <p class="des_content">{{jobCard['job_description']}}</p>
+                        </div>
+                    </div>
+                
+                </li>
+            </ng-template>
+            <!-- No jobs container -->
+            <ng-template #emptyBlock>
+                <div class="d-flex flex-column justify-content-center align-items-center">
+                    <img src="https://assets.ccbp.in/frontend/react-js/no-jobs-img.png" alt="job_not_found" class="job_not_found_adj">
+                    <h1 class="no_job_title">No Jobs Found</h1>
+                    <p class="no_job_des">We could not find any jobs, Try another filters</p>
+                </div>
+            </ng-template>
+        </ng-template>
+        <!-- connection lost container view -->
+        <ng-template #elseBlock>
+            <app-coonection-lost></app-coonection-lost>
+        </ng-template>
+    </ul>
+</div>
+<!-- Ends heare -->

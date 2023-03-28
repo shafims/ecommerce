@@ -1,0 +1,130 @@
+<!-- <app-header></app-header> -->
+<div class="header-bg p-3">
+    <div class="container header">
+        <div class="medium-feat d-flex justify-content-between align-items-center"> 
+            <img src="https://assets.ccbp.in/frontend/react-js/logo-img.png" alt="webSiteLogo" class="header-img" routerLink=""/>
+            <ul class="items d-flex justify-content-between align-items-center mb-0">
+                <li class="list-item" routerLink="">Home</li>
+                <li class="list-item" routerLink="/jobs">Jobs</li>
+            </ul>
+            <button class="logoutBtn" (click)="logout()" mat-raised-button color="primary">Logout</button>
+        </div>
+        
+        <div class="icons  d-flex justify-content-between align-items-center">
+            <img src="https://assets.ccbp.in/frontend/react-js/logo-img.png" alt="webSiteLogo" class="header-img" routerLink=""/>
+            <div class="inner-icons  d-flex justify-content-between align-items-center">
+                <mat-icon class="icon-item">home</mat-icon>
+                <mat-icon class="icon-item">work</mat-icon>
+                <button class="logout" (click)="logout()">
+                    <mat-icon>logout</mat-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "large" color = "#ffffff" type = "ball-atom" [fullScreen] = "true">
+        <p style="color: white" > Loading... </p>
+    </ngx-spinner>
+    <div *ngIf="statusCode === 200;then successBlock else failurBlock">
+    </div>
+    <ng-template #successBlock >
+        <div class="px-2 py-2 pt-4">
+            <div class="each_card container">
+                <div class="card_header">
+                    <img src="{{jobInfoObj['job_details']['company_logo_url']}}" alt="company_logo" class="c_image"/>
+                    <div class="role_rating">
+                        <h1 class="title">{{jobInfoObj['job_details']['title']}}</h1>
+                        <div class="rating">
+                            <mat-icon class="star_icon">star</mat-icon>
+                           <p class="rating_value">{{jobInfoObj['job_details']['rating']}}</p> 
+                        </div>
+                    </div>
+                </div>
+                <div class="card_intermediate">
+                    <div class="emp_type_location">
+                        <div class="location_con">
+                            <mat-icon class="icon_adj">location_on</mat-icon>
+                            <p class="text">{{jobInfoObj['job_details']['location']}}</p>
+                        </div>
+                        <div class="location_con">
+                            <mat-icon class="icon_adj">work</mat-icon>
+                            <p class="text">{{jobInfoObj['job_details']['employment_type']}}</p>
+                        </div>
+                    </div>
+                    <p class="package">{{jobInfoObj['job_details']['package_per_annum']}}</p>
+                </div>
+                <hr class="hrLine"/>
+                <div class="description">
+                    <div class="navigate_cont">
+                        <h1 class="des_title">Description</h1>
+                        <a target="_blank" href="{{jobInfoObj['job_details']['company_website_url']}}" class="anchor">Visit
+                            <mat-icon class="icon_adj2">open_in_new</mat-icon>
+                        </a>
+                    </div>
+                    <p class="des_content">{{jobInfoObj['job_details']['job_description']}}</p>
+                </div>
+                <div class="skills mt-3">
+                    <h1 class="skill-title">Skills</h1>
+                    <ul class="skills_container g-3">
+                        <li *ngFor="let skillCard of jobInfoObj['job_details']['skills']" class="col-6 col-md-4">
+                            <div class="Skill_card mb-5">
+                                <img src="{{skillCard['image_url']}}" alt="skill_img" class="skill_img">
+                                <p class="language_name">{{skillCard['name']}}</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="lif_at_company g-2">
+                    <div class="context col-sm-12 col-md-8">
+                        {{jobInfoObj['job_details']['life_at_company']['description']}}
+                    </div>
+                    <img src="{{jobInfoObj['job_details']['life_at_company']['image_url']}}" alt="lifeAtC" class="rounded-3 col-sm-12 col-md-4">
+                </div>
+            </div>
+            <div class="mt-4 container similar_job">
+                <p class="text-white similarJob">Similar Jobs</p>
+                <ul class="similar_jobs_container grid gap-4">
+                    <li *ngFor="let similar_card of jobInfoObj['similar_jobs']" class="col-12 col-md-4 similar_card" (click)="similarJobFun(similar_card['id'])">
+                        <div class="card_header">
+                                <img src="{{similar_card['company_logo_url']}}" alt="company_logo" class="c_image"/>
+                                <div class="role_rating">
+                                    <h1 class="title">{{similar_card['title']}}</h1>
+                                    <div class="rating">
+                                        <mat-icon class="star_icon">star</mat-icon>
+                                       <p class="rating_value">{{similar_card['rating']}}</p> 
+                                       <!-- <p class="text-white">{{similar_card['id']}}</p> -->
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="description d-flex flex-column justify-content-between align-items-start">
+                            <div>
+                                <h1 class="des_title">Description</h1>
+                                <p class="des_content">{{similar_card['job_description']}}</p>
+                            </div>
+                            <div class="card_intermediate">
+                                <div class="emp_type_location">
+                                    <div class="location_con">
+                                        <mat-icon class="icon_adj">location_on</mat-icon>
+                                        <p class="text">{{similar_card['location']}}</p>
+                                    </div>
+                                    <div class="location_con">
+                                        <mat-icon class="icon_adj">work</mat-icon>
+                                        <p class="text">{{similar_card['employment_type']}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template #failurBlock>
+        <div class="p-2">
+        <app-coonection-lost></app-coonection-lost>
+        </div>
+    </ng-template>
+</div>
+
+
