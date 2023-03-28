@@ -122,7 +122,12 @@
     </ng-template>
     <ng-template #failurBlock>
         <div class="p-2">
-        <app-coonection-lost></app-coonection-lost>
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <img src="https://assets.ccbp.in/frontend/react-js/failure-img.png" alt="job_not_found" class="job_not_found_adj">
+                <h1 class="no_job_title">Oops! Something Went Wrong...</h1>
+                <p class="no_job_des text-center">We cannot seem to find the page you are looking for.</p>
+                <button mat-raised-button color="primary" class="mt-2" (click)="retryPage()">Retry</button>
+            </div>
         </div>
     </ng-template>
 </div>

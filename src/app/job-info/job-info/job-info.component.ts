@@ -17,7 +17,12 @@ export class JobInfoComponent {
   statusCode:any;
   
   ngOnInit(){
-    this.gettingJobFun() 
+    this.gettingJobFun()
+  }
+
+  retryPage(){
+    let token = this.cookieMethod.get('jwt_Token')
+    this._authService.retryFunction(token)
   }
 
   gettingJobFun(){
@@ -35,6 +40,7 @@ export class JobInfoComponent {
       // console.log(this.jobInfoObj)
     },
     error=>{
+      this._spinner.hide()
       if(error['status'] === 401){
         this.statusCode = error['status']
         this._spinner.hide()

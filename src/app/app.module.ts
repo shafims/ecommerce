@@ -18,6 +18,7 @@ import { NotFoundModule } from './not-found/not-found.module';
 import { MatButtonModule } from '@angular/material/button';
 import { HomepageModule } from './homepage/homepage.module';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { JobInfoModule } from './job-info/job-info.module';
 
 // import { NgxSpinnerModule } from "ngx-spinner";
 
@@ -40,6 +41,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     AuthenticationModule,
     HomepageModule,
     JobsModule,
+    JobInfoModule,
     NotFoundModule
   ],
 providers: [

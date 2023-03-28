@@ -6,7 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 
 const routes: Routes = [
-  {path:'',component:AuthenticationComponent},
+  {path:'',component:AuthenticationComponent}
  ];
 
 @NgModule({

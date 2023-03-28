@@ -30,12 +30,18 @@ const routes: Routes = [
     pathMatch:'full',
     canActivate:[AuthGuardService]
   },
+  {
+    path: 'jobs/:id',
+    loadChildren: () => import('./job-info/job-info.module').then(m => m.JobInfoModule),
+    pathMatch:'full',
+    canActivate:[AuthGuardService]
+  },
   
-  // {
-  //   path:'**',
-  //   loadChildren: () => import('./not-found/not-found.module').then(m => m.NotFoundModule),
-  //   // pathMatch:'full'
-  // }
+  {
+    path:'**',
+    loadChildren: () => import('./not-found/not-found.module').then(m => m.NotFoundModule),
+    pathMatch:'full'
+  }
 ];
 
 @NgModule({

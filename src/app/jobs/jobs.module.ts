@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from '../homepage/home-page/home-page.component';
 import { HeaderComponent } from '../header/header.component';
 import { JobsComponent } from './jobs.component';
-import { JobInfoComponent } from './job-info/job-info.component';
+import { JobInfoComponent } from '../job-info/job-info/job-info.component';
 import { CoonectionLostComponent } from './coonection-lost/coonection-lost.component';
 import { AuthGuardService } from '../auth-guard.service';
 import { NgxSpinnerModule } from 'ngx-spinner';
@@ -15,13 +15,13 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 
 const routes: Routes = [
   {path:'',component:JobsComponent,canActivate:[AuthGuardService]},
-  {path:'jobs/:id',component:JobInfoComponent,canActivate:[AuthGuardService]},
+  // {path:'jobs/:id',component:JobInfoComponent,canActivate:[AuthGuardService]},
 ];
 
 @NgModule({
   declarations: [
     JobsComponent,
-    JobInfoComponent,
+    // JobInfoComponent,
     CoonectionLostComponent,
   ],
   imports: [
