@@ -12,9 +12,11 @@
         <div class="icons  d-flex justify-content-between align-items-center">
             <img src="https://assets.ccbp.in/frontend/react-js/logo-img.png" alt="webSiteLogo" class="header-img" routerLink=""/>
             <div class="inner-icons  d-flex justify-content-between align-items-center">
-                <mat-icon class="icon-item">home</mat-icon>
-                <mat-icon class="icon-item">work</mat-icon>
-                <button class="logout" (click)="logout()">
+                <div class="mr-3">
+                <mat-icon class="icon-item mr-3" routerLink="">home</mat-icon>
+                <mat-icon class="icon-item mr-2" routerLink="/jobs">work</mat-icon>
+                </div>
+                <button class="logout ml-4" (click)="logout()">
                     <mat-icon>logout</mat-icon>
                 </button>
             </div>

@@ -8,3 +8,21 @@ ul{
 li{
     list-style-type: none;
 }
+.package{
+    font-size: 15px !important;
+    margin-bottom: 0px !important;
+}
+
+@media screen and (max-width:425px) {
+    .package{
+        font-size: 15px !important;
+        margin-bottom: 0px !important;
+    }
+}
+
+@media screen and (min-width:426px) {
+    .package{
+        font-size: 20px !important;
+        margin-bottom: 0px !important;
+    }
+}
